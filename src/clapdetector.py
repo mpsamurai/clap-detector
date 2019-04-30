@@ -98,7 +98,7 @@ class ClapDetector:
     def detection_sleep(self):
         time.sleep(0.01)
         
-    def detect(self):
+    def detect(self, callback):
     
         inp = alsaaudio.PCM(alsaaudio.PCM_CAPTURE,alsaaudio.PCM_NONBLOCK, self.pcm_device_name)
     
