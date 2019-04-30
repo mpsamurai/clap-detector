@@ -136,9 +136,10 @@ class ClapDetector:
             volume = -1
             try:
                 volume = audioop.max(data, 2)
-                if volume > 15:
+                if volume > 300:
                     print(volume)
-            except: 
+            
+                except: 
                 print("err")
                 err = True
             if err: continue
@@ -150,8 +151,7 @@ class ClapDetector:
             if n2 > 500:
                 avgQueue.pop()
 
-            if n > queue.size:
-                avg = avgQueue.totalAvg()
+            if n > queue.size:avg = avgQueue.totalAvg()
                 
                 low_limit = avg + 500
                 high_limit = avg + 2000
