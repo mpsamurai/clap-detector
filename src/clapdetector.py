@@ -136,7 +136,8 @@ class ClapDetector:
             volume = -1
             try:
                 volume = audioop.max(data, 2)
-                print(volume)
+                if volume > 15:
+                    print(volume)
             except: 
                 print("err")
                 err = True
