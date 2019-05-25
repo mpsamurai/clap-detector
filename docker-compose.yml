@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  redis:
+    image: arm32v6/redis:5-alpine
+    ports:
+      - 6379:6379
+  clap-detector:
+    build: .
+    volumes:
+      - ./src:/code
+      - ../neochi-core/src/neochi:/code/neochi
+    devices:
+      - "/dev/snd:/dev/snd"
+    depends_on:
+      - redis

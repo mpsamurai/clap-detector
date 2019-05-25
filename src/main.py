@@ -11,6 +11,6 @@ def push_to_redis(redis_handler):
     clap_detected.notify()
 
 clap_detector = cld.ClapDetector("default:CARD=Device")
-r = redis.StrictRedis('127.0.0.1', 6379, db=0)
+r = redis.StrictRedis('redis', 6379, db=0)
 clap_detector.set_on_detect_func(push_to_redis, r)
 clap_detector.detect()
